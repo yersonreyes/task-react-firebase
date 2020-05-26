@@ -31,5 +31,16 @@
       color: #008dd0;
       letter-spacing: 10px;
     }
+
+    &__input {
+      padding: 0;
+      border-left: 1px solid #dadada;
+      border-right: 1px solid #dadada;
+      border-bottom: 1px solid #dadada;
+      color: #fff;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      overflow: hidden;
+    }
   }
 }

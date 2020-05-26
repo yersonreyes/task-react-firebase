@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import AddTask from "./components/AddTask";
 
 import "./App.scss";
 
@@ -29,7 +30,7 @@ export default function App() {
           xs={{ span: 10, offset: 1 }}
           md={{ span: 6, offset: 3 }}
         >
-          <input placeholder="nueva tarea"></input>
+          <AddTask />
         </Col>
       </Row>
     </Container>
