@@ -12,6 +12,7 @@ const db = firebase.firestore(firebase);
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
+  const [reloadTask, setReloadTask] = useState(false);
 
   useEffect(() => {
     db.collection("task")
@@ -26,7 +27,9 @@ export default function App() {
         });
         setTasks(arrayTasks);
       });
-  }, []);
+    setReloadTask(false);
+  }, [reloadTask]);
+
   return (
     <Container fluid className="app">
       <div className="title">
@@ -54,7 +57,7 @@ export default function App() {
           xs={{ span: 10, offset: 1 }}
           md={{ span: 6, offset: 3 }}
         >
-          <AddTask />
+          <AddTask setReloadTask={setReloadTask} />
         </Col>
       </Row>
     </Container>

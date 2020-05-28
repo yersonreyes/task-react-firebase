@@ -8,7 +8,8 @@ import "./AddTask.scss";
 
 const db = firebase.firestore(firebase);
 
-export default function AddTask() {
+export default function AddTask(props) {
+  const { setReloadTask } = props;
   const [task, setTask] = useState("");
 
   const onSubmit = (e) => {
@@ -21,7 +22,7 @@ export default function AddTask() {
         })
         .then(() => {
           setTask("");
-          console.log("tarea creada");
+          setReloadTask(true);
         });
     }
   };
