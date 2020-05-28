@@ -10,12 +10,22 @@ const db = firebase.firestore(firebase);
 
 export default function Task(props) {
   const { task, setReloadTask } = props;
+
   const completeTask = () => {
     db.collection("task")
       .doc(task.id)
       .update({
         completed: !task.completed,
       })
+      .then(() => {
+        setReloadTask(true);
+      });
+  };
+
+  const deleteTask = () => {
+    db.collection("task")
+      .doc(task.id)
+      .delete()
       .then(() => {
         setReloadTask(true);
       });
@@ -30,7 +40,7 @@ export default function Task(props) {
       </div>
       <div>{task.name}</div>
       <div>
-        <Delete />
+        <Delete onClick={deleteTask} />
       </div>
     </div>
   );
