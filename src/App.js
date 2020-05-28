@@ -56,7 +56,9 @@ export default function App() {
           ) : size(tasks) === 0 ? (
             <h3>No hay tareas</h3>
           ) : (
-            map(tasks, (task, index) => <Task key={index} task={task} />)
+            map(tasks, (task, index) => (
+              <Task key={index} task={task} setReloadTask={setReloadTask} />
+            ))
           )}
         </Col>
         <Col
