@@ -20,6 +20,7 @@ export default function AddTask() {
           completed: false,
         })
         .then(() => {
+          setTask("");
           console.log("tarea creada");
         });
     }
@@ -30,6 +31,7 @@ export default function AddTask() {
         type="text"
         placeholder="New Task"
         onChange={(e) => setTask(e.target.value)}
+        value={task}
       />
       <Button type="submit">
         <Send />
